@@ -1,4 +1,4 @@
-package service
+package core.service
 
 import java.nio.ByteBuffer
 
@@ -6,10 +6,12 @@ import boopickle.Default._
 import org.scalajs.dom
 
 import scala.concurrent.Future
-import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.runNow
+import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
+
 /**
-  * Created by Janos on 12/9/2015.
+  * Common Autowire client class.
+  * @param name parameter for the /api/{name} url
   */
 abstract class AbstractClient(name: String) extends autowire.Client[ByteBuffer, Pickler, Pickler] {
   override def doCall(req: Request): Future[ByteBuffer] = dom.ext.Ajax.post(

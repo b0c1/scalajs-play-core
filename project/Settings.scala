@@ -81,17 +81,10 @@ object dependencies {
   ))
 
   val clientDependencies = Def.setting(Seq(
-    "com.github.japgolly.scalajs-react" %%% "core" % versions.client.scalajsReact,
-    "com.github.japgolly.scalajs-react" %%% "extra" % versions.client.scalajsReact,
-    "com.github.japgolly.scalajs-react" %%% "ext-scalaz71" % versions.client.scalajsReact,
-    "com.github.japgolly.scalajs-react" %%% "ext-monocle" % versions.client.scalajsReact,
-    "com.github.japgolly.scalacss" %%% "ext-react" % versions.client.scalaCSS,
     "org.scala-js" %%% "scalajs-dom" % versions.client.scalaDom
   ))
 
   val jsDependencies = Def.setting(Seq(
-    "org.webjars.npm" % "react" % versions.js.react / "react-with-addons.js" minified "react-with-addons.min.js" commonJSName "React",
-    "org.webjars.npm" % "react-dom" % versions.js.react / "react-dom.js" commonJSName "ReactDOM" minified "react-dom.min.js" dependsOn "react-with-addons.js",
     "org.webjars" % "jquery" % versions.js.jQuery / "jquery.js" minified "jquery.min.js",
     RuntimeDOM % "test"
   ))
@@ -110,13 +103,10 @@ object versions {
 
   object client {
     val scalaDom = "0.8.2"
-    val scalajsReact = "0.10.1"
-    val scalaCSS = "0.3.1"
   }
 
   object js {
     val jQuery = "2.1.4"
-    val react = "0.14.2"
   }
 
   object server {

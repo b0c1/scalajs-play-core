@@ -5,7 +5,8 @@ import java.nio.ByteBuffer
 import boopickle.Default._
 import boopickle.Pickler
 import play.api.mvc.{Controller, RawBuffer, Request}
-
+import boopickle.Default._
+import scala.concurrent.ExecutionContext.Implicits.global
 /**
   * Autowire router
   */
@@ -17,8 +18,6 @@ object Router extends autowire.Server[ByteBuffer, Pickler, Pickler] {
 }
 
 trait ServiceController extends Controller {
-  import boopickle.Default._
-  import scala.concurrent.ExecutionContext.Implicits.global
   /**
     * Helper for internal routing
     * @param path
